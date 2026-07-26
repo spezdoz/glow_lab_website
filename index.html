@@ -355,18 +355,52 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 7rem; }
-      .hero-image { display: none; }
-      .about { grid-template-columns: 1fr; }
-      .about-image-wrap { display: none; }
-      .treatments-grid { grid-template-columns: 1fr 1fr; }
+      /* NAV */
+      nav { padding: 1rem 4vw; flex-wrap: wrap; }
+      .nav-links {
+        display: none; width: 100%; flex-direction: column;
+        gap: 0; background: rgba(250,247,242,0.98);
+        padding: 1rem 0; margin-top: .5rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: .75rem 1rem; font-size: .85rem; border-bottom: 1px solid var(--cream); }
+      .nav-book { font-size: .65rem; padding: .5rem 1rem; }
+      .nav-hamburger {
+        display: flex; flex-direction: column; gap: 5px;
+        background: none; border: none; cursor: pointer; padding: .5rem;
+      }
+      .nav-hamburger span {
+        display: block; width: 22px; height: 2px;
+        background: var(--charcoal); transition: .3s;
+      }
+
+      /* HERO */
+      .hero { grid-template-columns: 1fr; padding-top: 6rem; gap: 2rem; }
+      .hero-image { display: block; width: 100%; }
+      .hero-image-frame { aspect-ratio: 4/3; position: relative; }
+      .hero-title { font-size: 2.5rem; }
+
+      /* ABOUT */
+      .about { grid-template-columns: 1fr; gap: 2rem; }
+      .about-image-wrap { display: block; }
+      .about-img { width: 100%; aspect-ratio: 4/3; margin: 0; }
+
+      /* TREATMENTS */
+      .treatments-grid { grid-template-columns: 1fr; }
+
+      /* PROCESS */
       .process-steps { grid-template-columns: 1fr 1fr; }
       .process-steps .step::after { display: none; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
+
+      /* GALLERY */
+      .gallery-grid { grid-template-columns: 1fr; }
       .gallery-item:first-child { grid-row: auto; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr 1fr; }
-      .nav-links { display: none; }
+
+      /* FOOTER */
+      footer { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 901px) {
+      .nav-hamburger { display: none; }
     }
     @media (max-width: 560px) {
       .treatments-grid { grid-template-columns: 1fr; }
@@ -386,6 +420,9 @@
     
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <a class="nav-book" href="https://facesconsent.com/bookings/kirsty-smith-3" target="_blank" rel="noopener">Book Now</a>
 </nav>
 
